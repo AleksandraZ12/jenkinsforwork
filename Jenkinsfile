@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials-id') {
-                        docker.image('reimiyaa/myapp').push('latest')
+                        docker.image('myapp').push('latest')
                     }
                 }
             }
