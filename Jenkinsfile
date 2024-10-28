@@ -5,7 +5,7 @@ pipeline {
         stage('Сборка Docker Image') {
             steps {
                 script {
-                    docker.build('hello-world-app')
+                   sh 'docker build -t "myapp" .'
                 }
             }
         }
@@ -13,7 +13,6 @@ pipeline {
             steps {
                 script {
                     docker.image('hello-world-app').inside {
-                        sh 'npm install'
                         sh 'npm test'
                     }
                 }
