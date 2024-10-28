@@ -12,7 +12,7 @@ pipeline {
         stage('Запуск тестов') {
             steps {
                 script {
-                    docker.image('hello-world-app').inside {
+                    docker.image('myapp').inside {
                         sh 'npm test'
                     }
                 }
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials-id') {
-                        docker.image('hello-world-app').push('latest')
+                        docker.image('myapp').push('latest')
                     }
                 }
             }
