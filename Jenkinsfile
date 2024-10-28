@@ -5,7 +5,7 @@ pipeline {
         stage('Сборка Docker Image') {
             steps {
                 script {
-                   sh 'docker build -t "myapp" .'
+                   sh 'docker build -t "reimiyaa/myapp" .'
                 }
             }
         }
@@ -19,8 +19,8 @@ pipeline {
         stage('Загрузка в Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials-id') {
-                        docker.image('myapp').push('latest')
+                    docker.withRegistry('https://registry-1.docker.io/', 'dockerhub-credentials-id') {
+                        docker.image('reimiyaa/myapp').push('latest')
                     }
                 }
             }
