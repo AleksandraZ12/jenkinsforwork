@@ -21,7 +21,7 @@ pipeline {
         stage('Загрузка в Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com/', 'dockerhub-credentials-id') {
+                    docker.withRegistry('https://hub.docker.com/u/reimiyaa', 'dockerhub-credentials-id') {
                         docker.image('myapp').push('latest')
                     }
                 }
