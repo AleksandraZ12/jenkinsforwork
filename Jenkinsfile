@@ -10,11 +10,8 @@ pipeline {
             }
         }
         stage('Запуск тестов') {
-            steps {
-                script {
-                    docker.image('myapp').inside {
-                        sh 'npm test'
-                    }
+            steps {      
+                sh 'npm test'
                 }
             }
         }
