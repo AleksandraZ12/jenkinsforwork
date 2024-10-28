@@ -5,7 +5,7 @@ pipeline {
         stage('Сборка Docker Image') {
             steps {
                 script {
-                   sh 'docker build -t "myapp" .'
+                   sh 'docker build -t "reimiyaa/myapp" .'
                 }
             }
         }
